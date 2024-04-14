@@ -107,7 +107,7 @@ async function fetchData(mode, pokemon="") {
   try {
     randomizeButton.disabled = true;
     let pokemonName = "";
-    if (ready && mode !== 'currLoad') {
+    if (mode !== 'currLoad') {
       pokemonName = "bulbasaur";
     } else {
       if (mode === "random") {
@@ -137,7 +137,10 @@ async function fetchData(mode, pokemon="") {
 
     const speciesData = await response2.json();
     if (mode === 'currLoad') {
-      document.getElementById(data.id).remove();
+      const prevElem = document.getElementById(data.id);
+      if (prevElem) {
+        prevElem.remove();
+      }
     }
     
     if ((!prevSearchIds.includes(data.id) || mode === "currLoad") || mode === "prevSearch" || mode === 'typedSearch') {
@@ -400,7 +403,7 @@ searchBar.addEventListener('click', () => {
 })
 
 window.addEventListener('load', () => {
-  fetchData('currLoad', currCardId);
+  fetchData('currLoad', currCardId || 1);
   beginningPreloader.style.display = 'none';
   pokemonCard.style.display = 'flex';
 })
