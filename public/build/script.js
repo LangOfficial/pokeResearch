@@ -136,9 +136,7 @@ async function fetchData(mode, pokemon="") {
     );
 
     const speciesData = await response2.json();
-    console.log(mode);
     if (mode === 'currLoad') {
-      console.log(document.getElementById(data.id));
       document.getElementById(data.id).remove();
     }
     
@@ -264,12 +262,8 @@ async function fetchData(mode, pokemon="") {
           `;
         }
       }
-      console.log(ready)
       if (!ready) {
-        console.log('here', mode);
         const prevEntry = document.getElementById(data.id);
-        console.log(prevEntry)
-        console.log(mode);
         if (mode === 'prevSearch' || (mode === 'typedSearch' && prevEntry) || mode === 'currLoad') {
           prevEntry.remove();
         }
@@ -311,7 +305,7 @@ async function fetchData(mode, pokemon="") {
     }
     console.error(error);
   } finally {
-    console.log("finished loading");
+    // console.log("finished loading");
     randomizeButton.disabled = false;
     pokeCardLoader.style.display = "none";
     pokemonCard.style.display = "flex";
