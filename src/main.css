@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media (min-width: 1024px) {
+  .reset-classes {
+    all: unset;
+  }
+
+} 
+
+.type-display {
+  @apply py-2 px-6 rounded-full font-semibold min-w-[5.625rem] max-w-[5.625rem] text-center flex items-center justify-center border-b-4 border-neutral-700;
+}
+
+.ability-display {
+  @apply block font-semibold;
+}
+
+.ability-description {
+  @apply px-4 pt-4 italic text-base text-neutral-500 leading-8;
+}
+
+.search-option {
+  @apply italic text-slate-600 bg-neutral-200 cursor-pointer duration-150 hover:text-blue-500 hover:bg-blue-100 shadow-lg py-2 px-4 rounded-full ease-in;
+}
+
+.tool-tip {
+  @apply relative inline-block;
+}
+
+.tool-tip-text {
+  @apply hidden absolute bottom-1/2 left-1/2 p-1 text-xs bg-black-500 text-neutral-100 
+}
+
+.tool-tip:hover .tool-tip-text {
+  @apply inline-block;
+}
+
+.preloader {
+  @apply flex items-center justify-center;
+  .dot-container {
+    @apply flex space-x-3;
+    .dot {
+      @apply w-3 h-3 bg-gray-300 rounded-full animate-custom-bounce;
+    }
+  }
+}
+
+.dropdown-item {
+  @apply grid grid-cols-2 max-w-44 place-items-center gap-x-2 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:focus:bg-gray-700 cursor-pointer;
+}
+
+.unit-dropdown {
+  @apply flex gap-4 items-center py-2 px-4 shadow-lg cursor-pointer;
+}
+
+.unit-selection, .dropdown-search {
+  @apply bg-neutral-300 z-10 absolute rounded-lg
+}
+
+.beginning-preloader {
+  background: #ffffff;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

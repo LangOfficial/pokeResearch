@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="build/main.css" />
+  </head>
+  <body class="font-primary">
+    <div class="beginning-preloader">
+      <div class="animate-spin inline-block border-[3px] border-current border-t-transparent text-blue-600 rounded-full dark:text-blue-500 size-24" role="status" aria-label="loading">
+      </div>
+    </div>
+    <nav class="flex justify-evenly items-start pt-4">
+      <img
+        class="w-14 hidden lg:block"
+        src="images/pokemonResearcherIcon.png"
+        alt="home"
+      />
+      <div>
+        <div
+          class="rounded-full py-2 px-6 shadow-xl flex justify-around items-center relative"
+        > 
+          <!-- <input
+              class="py-1 w-64 lg:w-96 text-lg focus:outline-none bg-none"
+              type="text"
+              placeholder="Search"
+              id="search-bar"
+          />
+          <ul class="dropdown-search hidden min-w-48 lg:min-w-60 slide animate-fadeIn px-2 origin-top max-h-96 overflow-y-scroll absolute left-0 z-20" id="dropdown-search">
+            
+          </ul> -->
+          <div class="relative inline-flex">
+            <input
+              class="py-1 w-64 lg:w-96 text-lg focus:outline-none bg-none"
+              type="text"
+              autocomplete="off"
+              placeholder="Search"
+              id="search-bar"
+          />
+
+            <ul class="dropdown-search min-w-[11rem] slide px-2 max-h-60 overflow-y-scroll top-16 hidden" id="dropdown-search">
+            </ul>
+          </div>
+          <i
+            class="fa-solid fa-magnifying-glass py-2 rounded cursor-pointer"
+            id="search-enter"
+          ></i>
+        </div>
+        
+        <div class="flex gap-4 justify-around mt-4 text-sm">
+          <div class="relative">
+            <button class="unit-dropdown search-option">
+              <p>Previous searches</p>
+              <i class="fa-solid fa-angle-down -mb-2 dropdown-arrow"></i>
+            </button>
+            <ul class="unit-selection hidden min-w-[11rem] slide animate-fadeIn px-2 origin-top max-h-60 overflow-y-scroll translate-y-4" id="dropdown-menu-prev">
+              <button class="w-full text-end my-2 p-1" >
+                <i class="fa-regular fa-trash-can hover:text-red-500 ease-in duration-100" id="clear-search"></i>
+              </button>
+            </ul>
+          </div>
+          <button class="search-option" id="randomize-button">
+            I'm feeling lucky...
+          </button>
+          
+        </div>
+      </div>
+
+      <a
+        data-hs-overlay="#hs-vertically-centered-modal"
+        id="contact"
+        href="#"
+        class="-rotate-90 fixed right-0 bottom-1/2 translate-y-1/2 px-6 py-2 bg-green-400 rounded-t-md translate-x-9 font-bold reset-classes lg:py-2 lg:px-6 cursor-pointer lg:cursor-pointer"
+        >Contact</a
+      >
+    </nav>
+    
+    <main class="p-6 max-w-3xl mx-auto">
+      <div
+        id="hs-vertically-centered-modal"
+        class="hs-overlay hidden size-full fixed top-0 start-0 z-[80] overflow-x-hidden overflow-y-auto  bg-black-500 bg-opacity-50" data-contact-modal
+      >
+        <div
+          class="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-lg sm:w-full m-3 sm:mx-auto min-h-[calc(100%-3.5rem)] flex items-center"
+        >
+          <div
+            class="w-full flex flex-col bg-white border shadow-sm rounded-xl pointer-events-auto bg-white-100 dark:bg-gray-800 dark:border-gray-700 dark:shadow-slate-700/[.7"
+          >
+            <div
+              class="flex justify-between items-center py-3 px-4 border-b dark:border-gray-700"
+            >
+              <h3 class="font-bold text-gray-800 dark:text-neutral-50">
+                Contact Details
+              </h3>
+              <button
+                type="button"
+                class="flex justify-center items-center size-7 text-sm font-semibold rounded-full border border-transparent text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-gray-700"
+                data-hs-overlay="#hs-vertically-centered-modal"
+              >
+                <span class="sr-only" id="close-modal">Close</span>
+                <svg
+                  class="flex-shrink-0 size-4"
+                  
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M18 6 6 18"></path>
+                  <path d="m6 6 12 12"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="p-4 overflow-y-auto">
+              <p class="flex items-center gap-x-2 text-gray-800 dark:text-gray-400">
+                Message me through Fiverr 
+                <img class="w-5 max-w-full" src="images/fiverr-icon.svg" alt="">
+              </p>
+              <p class="font-black">OR</p>
+              <p class="flex items-center gap-x-2">
+                <span>
+                  Email me at
+                  <span class="font-bold">                 langliland64@gmail.com
+                  </span>
+                </span>
+                <i class="fa-solid fa-envelope"></i>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="preloader hidden" id="preloader-poke-card">
+        <div class="dot-container">
+          <div class="dot"></div>
+          <div class="dot" style="animation-delay: 0.2s"></div>
+          <div class="dot" style="animation-delay: 0.4s"></div>
+        </div>
+      </div>
+
+      <section
+        class="rounded-lg p-5 shadow-xl border-8 flex-col gap-4 text-xl hidden"
+        id="pokemon-card"
+      >
+        <div
+          class="generated-container flex italic gap-3 text-2xl"
+          id="intro-info"
+        ></div>
+        <div class="flex gap-4 generated-container" id="type-container"></div>
+        <div
+          class="grid grid-cols-2 generated-container"
+          id="sprites-container"
+        ></div>
+        <div class="generated-container" id="measurement-container"></div>
+        <div
+          class="generated-container flex flex-col gap-4"
+          id="abilities-container"
+        ></div>
+        <div class="generated-container" id="stats-container"></div>
+        <div
+          class="generated-container flex flex-col gap-10 lg:flex-row"
+          id="cries-container"
+        ></div>
+      </section>
+    </main>
+  </body>
+  <script src="../node_modules/preline/dist/preline.js"></script>
+  <script type="module" src="build/script.js"></script>
+</html>
