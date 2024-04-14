@@ -107,7 +107,7 @@ async function fetchData(mode, pokemon="") {
   try {
     randomizeButton.disabled = true;
     let pokemonName = "";
-    if (mode !== 'currLoad') {
+    if (ready && mode !== 'currLoad') {
       pokemonName = "bulbasaur";
     } else {
       if (mode === "random") {
@@ -136,12 +136,12 @@ async function fetchData(mode, pokemon="") {
     );
 
     const speciesData = await response2.json();
-    if (mode === 'currLoad') {
-      const prevElem = document.getElementById(data.id);
-      if (prevElem) {
-        prevElem.remove();
-      }
-    }
+    // if (mode === 'currLoad') {
+    //   const prevElem = document.getElementById(data.id);
+    //   if (prevElem) {
+    //     prevElem.remove();
+    //   }
+    // }
     
     if ((!prevSearchIds.includes(data.id) || mode === "currLoad") || mode === "prevSearch" || mode === 'typedSearch') {
       pokeCardLoader.style.display = "flex";
@@ -163,7 +163,6 @@ async function fetchData(mode, pokemon="") {
         `border-${pokemonColor}-${pokemonColors[pokemonColor]}`
       );
      
-      
       // LOAD BASIC INFO
       const displayName = title(data.name, "-", " ");
       introInfo.innerHTML += `<h1 id="pokemon-name" class="font-bold text-3xl">${displayName}</h1>`;
@@ -268,7 +267,9 @@ async function fetchData(mode, pokemon="") {
       if (!ready) {
         const prevEntry = document.getElementById(data.id);
         if (mode === 'prevSearch' || (mode === 'typedSearch' && prevEntry) || mode === 'currLoad') {
-          prevEntry.remove();
+          if (prevEntry) {
+            prevEntry.remove();
+          }
         }
         // DROP ITEM
         const dropItemStr = `
@@ -403,7 +404,7 @@ searchBar.addEventListener('click', () => {
 })
 
 window.addEventListener('load', () => {
-  fetchData('currLoad', currCardId || 1);
+  fetchData('currLoad', currCardId);
   beginningPreloader.style.display = 'none';
   pokemonCard.style.display = 'flex';
 })
