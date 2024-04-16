@@ -270,10 +270,7 @@ async function fetchData(mode, pokemon = "") {
       if (!ready) {
         const prevEntry = document.getElementById(data.id);
         if (mode === 'prevSearch') {
-          console.log('prevSearched');
           prevEntry.remove();
-          // prevSearchIds.pop(prevSearchIds.indexOf(data.id));
-          console.log(prevSearchIds);
           prevSearchIds = prevSearchIds.filter(item => item !== data.id);
         }
         if (!prevEntry || mode === 'prevSearch') {
