@@ -95,6 +95,8 @@ if (prevSearchIds.length === 0) {
 } else {
   for (const prevId of prevSearchIds) {
     previousSearchMenu.innerHTML += prevSearches[prevId];
+    console.log(prevSearches[prevId]);
+    console.log(previousSearchMenu.innerHTML);
   }
 }
 
@@ -280,7 +282,7 @@ async function fetchData(mode, pokemon = "") {
           <a class="dropdown-item" id="${data.id}">
             <img class="w-14" src="${data.sprites.front_default}" />
             <div>
-              <p class="font-semibold">#${data.id}</p>
+              <p class="font-semibold text-end">#${data.id}</p>
               <p>${displayName}</p>
             </div>
           </a>`;
