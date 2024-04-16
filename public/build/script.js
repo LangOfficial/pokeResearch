@@ -95,8 +95,6 @@ if (prevSearchIds.length === 0) {
 } else {
   for (const prevId of prevSearchIds) {
     previousSearchMenu.innerHTML += prevSearches[prevId];
-    console.log(prevSearches[prevId]);
-    console.log(previousSearchMenu.innerHTML);
   }
 }
 
@@ -154,7 +152,6 @@ async function fetchData(mode, pokemon = "") {
       pokemonCard.style.display = "none";
       localStorage.setItem("currCardId", JSON.stringify(data.id));
       const pokemonColor = speciesData.color.name;
-
       generatedContainers.forEach((container) => {
         container.innerHTML = "";
       });
@@ -272,12 +269,14 @@ async function fetchData(mode, pokemon = "") {
       }
       if (!ready) {
         const prevEntry = document.getElementById(data.id);
-        // if (mode === 'prevSearch' || (mode === 'typedSearch' && prevEntry) || mode === 'currLoad') {
-        //   if (prevEntry) {
-        //     prevEntry.remove();
-        //   }
-        //         }
-        if (!prevEntry) {
+        if (mode === 'prevSearch') {
+          console.log('prevSearched');
+          prevEntry.remove();
+          // prevSearchIds.pop(prevSearchIds.indexOf(data.id));
+          console.log(prevSearchIds);
+          prevSearchIds = prevSearchIds.filter(item => item !== data.id);
+        }
+        if (!prevEntry || mode === 'prevSearch') {
           const dropItemStr = `
           <a class="dropdown-item" id="${data.id}">
             <img class="w-14" src="${data.sprites.front_default}" />
@@ -309,8 +308,7 @@ async function fetchData(mode, pokemon = "") {
           if (nothingMsg) {
             nothingMsg.remove();
           }
-        }
-        // DROP ITEM
+        }       
       }
 
       ready = false;
